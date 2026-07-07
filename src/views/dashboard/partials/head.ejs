@@ -1,0 +1,23 @@
+<head>
+  <% const pageSeo = typeof seo !== "undefined" ? seo : {}; %>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= pageSeo.title || "Admin Dashboard | Chawla Plywood" %></title>
+  <meta name="description" content="<%= pageSeo.description || 'Chawla Plywood admin dashboard.' %>" />
+  <meta name="robots" content="<%= pageSeo.robots || 'noindex, nofollow' %>" />
+  <link rel="shortcut icon" href="/assets/images/favicon.webp" type="image/x-icon" />
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+  <style>
+    body.admin-body { margin: 0; background: #f6f7f9; color: #1f2933; font-family: Arial, sans-serif; }
+    .admin-shell { min-height: 100vh; display: flex; }
+    .admin-sidebar { width: 260px; background: #111827; color: #fff; padding: 24px; }
+    .admin-sidebar a { display: block; color: #d1d5db; text-decoration: none; padding: 10px 0; }
+    .admin-main { flex: 1; min-width: 0; }
+    .admin-header, .admin-footer { background: #fff; border-bottom: 1px solid #e5e7eb; padding: 18px 28px; }
+    .admin-footer { border-top: 1px solid #e5e7eb; border-bottom: 0; color: #6b7280; }
+    .admin-content { padding: 28px; }
+    .admin-card-grid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+    .admin-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 20px; }
+  </style>
+</head>

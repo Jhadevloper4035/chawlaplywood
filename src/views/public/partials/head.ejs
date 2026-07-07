@@ -1,0 +1,57 @@
+<head>
+  <% const pageSeo = typeof seo !== "undefined" ? seo : {}; %>
+  <!-- required meta -->
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- #favicon -->
+  <link rel="shortcut icon" href="/assets/images/favicon.webp" type="image/x-icon" />
+  <link rel="icon" href="/assets/images/favicon.webp" type="image/x-icon" />
+  <!-- #title -->
+  <title><%= pageSeo.title %></title>
+  <!-- #keywords -->
+  <% if (pageSeo.keywords) { %>
+    <meta name="keywords" content="<%= pageSeo.keywords %>" />
+  <% } %>
+  <!-- #description -->
+  <meta name="description" content="<%= pageSeo.description %>" />
+  <meta name="robots" content="<%= pageSeo.robots || 'index, follow' %>" />
+  <% if (pageSeo.canonical) { %>
+    <link rel="canonical" href="<%= pageSeo.canonical %>" />
+  <% } %>
+  <meta property="og:title" content="<%= pageSeo.ogTitle || pageSeo.title %>" />
+  <meta property="og:description" content="<%= pageSeo.ogDescription || pageSeo.description %>" />
+  <meta property="og:type" content="<%= pageSeo.type || 'website' %>" />
+  <meta property="og:site_name" content="<%= pageSeo.siteName %>" />
+  <% if (pageSeo.canonical) { %>
+    <meta property="og:url" content="<%= pageSeo.canonical %>" />
+  <% } %>
+  <% if (pageSeo.image) { %>
+    <meta property="og:image" content="<%= pageSeo.image %>" />
+  <% } %>
+  <meta name="twitter:card" content="<%= pageSeo.twitterCard || 'summary_large_image' %>" />
+  <meta name="twitter:title" content="<%= pageSeo.twitterTitle || pageSeo.title %>" />
+  <meta name="twitter:description" content="<%= pageSeo.twitterDescription || pageSeo.description %>" />
+  <% if (pageSeo.image) { %>
+    <meta name="twitter:image" content="<%= pageSeo.image %>" />
+  <% } %>
+  <% if (pageSeo.schema) { %>
+    <script type="application/ld+json"><%- JSON.stringify(pageSeo.schema) %></script>
+  <% } %>
+  <!-- bootstrap five css -->
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+  <!-- font awesome six css -->
+  <link rel="stylesheet" href="/assets/fonts/css/all.min.css" />
+  <!-- tabler icons css -->
+  <link rel="stylesheet" href="/assets/fonts/css/tabler-icons.min.css" />
+  <!-- magnific popup css -->
+  <link rel="stylesheet" href="/assets/css/magnific-popup.css" />
+  <!-- nice select css -->
+  <link rel="stylesheet" href="/assets/css/nice-select.css" />
+  <!-- odometer css -->
+  <link rel="stylesheet" href="/assets/css/odometer.css" />
+  <!-- swiper slider css -->
+  <link rel="stylesheet" href="/assets/css/swiper-bundle.min.css" />
+  <!-- main css -->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+</head>

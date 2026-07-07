@@ -1,0 +1,114 @@
+<% const footer = typeof footerData !== "undefined" ? footerData : {}; %>
+<% const productCategories = footer.productCategories || []; %>
+<% const productSubCategories = footer.productSubCategories || []; %>
+<% const brands = footer.brands || []; %>
+<% const quickLinks = footer.quickLinks || []; %>
+<% const applications = footer.applications || []; %>
+
+<!-- ==== footer start ==== -->
+<footer class="site-footer">
+  <div class="container-lg">
+    <div class="site-footer__grid">
+      <section class="site-footer__group site-footer__group--products" aria-labelledby="footer-products-title">
+        <h2 id="footer-products-title" class="site-footer__title">Products</h2>
+        <div class="site-footer__columns">
+          <nav class="site-footer__nav" aria-label="Product categories">
+            <h3 class="site-footer__subtitle">Categories</h3>
+            <ul>
+              <% productCategories.forEach((item) => { %>
+                <li><a href="<%= item.href %>"><%= item.label %></a></li>
+              <% }) %>
+            </ul>
+          </nav>
+
+          <nav class="site-footer__nav" aria-label="Product sub categories">
+            <h3 class="site-footer__subtitle">Sub Categories</h3>
+            <ul>
+              <% productSubCategories.forEach((item) => { %>
+                <li><a href="<%= item.href %>"><%= item.label %></a></li>
+              <% }) %>
+            </ul>
+          </nav>
+
+          <nav class="site-footer__nav" aria-label="Brands">
+            <h3 class="site-footer__subtitle">Brands</h3>
+            <ul>
+              <% brands.forEach((item) => { %>
+                <li>
+                  <a href="<%= item.href %>" <%- item.href.startsWith("http") ? 'target="_blank" rel="noopener"' : "" %>><%= item.label %></a>
+                </li>
+              <% }) %>
+            </ul>
+          </nav>
+        </div>
+      </section>
+
+      <section class="site-footer__group site-footer__group--quick" aria-labelledby="footer-quick-title">
+        <h2 id="footer-quick-title" class="site-footer__title">Quick Links</h2>
+        <div class="site-footer__quick-columns">
+          <nav class="site-footer__nav" aria-label="Quick links">
+            <ul>
+              <% quickLinks.forEach((item) => { %>
+                <li><a href="<%= item.href %>"><%= item.label %></a></li>
+              <% }) %>
+            </ul>
+          </nav>
+
+          <nav class="site-footer__nav" aria-label="Applications">
+            <h3 class="site-footer__subtitle">Applications</h3>
+            <ul>
+              <% applications.forEach((item) => { %>
+                <li><a href="<%= item.href %>"><%= item.label %></a></li>
+              <% }) %>
+            </ul>
+          </nav>
+        </div>
+      </section>
+    </div>
+
+    <div class="site-footer__brand">
+      <a class="site-footer__logo" href="/default/" aria-label="Chawla Plywood home">
+        <img src="/assets/images/logo/logo1.png" alt="Chawla Plywood" />
+      </a>
+      <div class="site-footer__brand-content">
+        <p>Chawla Plywood</p>
+        <address>
+          <i class="fa-solid fa-location-dot"></i>
+          Corporate Office: 8A-9A, Basai Road, Gurgaon, Haryana 122001
+        </address>
+      </div>
+      <a class="site-footer__direction" href="https://www.google.com/maps/search/?api=1&query=8A-9A%20Basai%20Road%20Gurgaon%20Haryana%20122001" target="_blank" rel="noopener">
+        <i class="fa-solid fa-location-arrow"></i>
+        Get Directions
+      </a>
+    </div>
+
+    <div class="site-footer__social">
+      <p>Follow us on</p>
+      <div class="site-footer__social-links">
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">
+          <i class="fa-brands fa-facebook-f"></i>
+        </a>
+        <a href="https://x.com/" target="_blank" rel="noopener" aria-label="X" title="X">
+          <i class="fa-brands fa-x-twitter"></i>
+        </a>
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube">
+          <i class="fa-brands fa-youtube"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      <p>Copyright &copy; <span id="copyrightYear"></span> Chawla Plywood. All Rights Reserved</p>
+      <p>Powered By Rantechnology </p>
+    </div>
+  </div>
+
+</footer>
+<!-- ==== / footer end ==== -->

@@ -1,0 +1,8 @@
+<div class="admin-card-grid">
+  <% stats.forEach((item) => { %>
+    <article class="admin-card">
+      <p class="mb-2 text-muted"><%= item.label %></p>
+      <strong class="h3"><%= item.value %></strong>
+    </article>
+  <% }) %>
+</div>

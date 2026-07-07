@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+
+<%- include("../partials/head", { seo: typeof seo !== "undefined" ? seo : locals.seo }) %>
+
+<body class="admin-body">
+  <div class="admin-shell">
+    <%- include("../partials/sidebar") %>
+    <main class="admin-main">
+      <%- include("../partials/header") %>
+      <section class="admin-content">
+        <%- include("../" + view, locals) %>
+      </section>
+      <%- include("../partials/footer") %>
+    </main>
+  </div>
+</body>
+
+</html>
