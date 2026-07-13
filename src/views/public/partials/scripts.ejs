@@ -107,6 +107,52 @@
   </script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
+      const shareInput = document.querySelector("[data-share-url]");
+      const copyButton = document.querySelector("[data-copy-share-url]");
+      if (!shareInput || !copyButton) return;
+
+      const shareUrl = window.location.href;
+      const shareTitle = document.title;
+      const originalText = copyButton.textContent;
+      shareInput.value = shareUrl;
+
+      const encodedUrl = encodeURIComponent(shareUrl);
+      const encodedTitle = encodeURIComponent(shareTitle);
+      const whatsapp = document.querySelector("[data-share-whatsapp]");
+      const facebook = document.querySelector("[data-share-facebook]");
+      const x = document.querySelector("[data-share-x]");
+      const email = document.querySelector("[data-share-email]");
+
+      if (whatsapp) whatsapp.href = "https://wa.me/?text=" + encodedTitle + "%20" + encodedUrl;
+      if (facebook) facebook.href = "https://www.facebook.com/sharer/sharer.php?u=" + encodedUrl;
+      if (x) x.href = "https://twitter.com/intent/tweet?url=" + encodedUrl + "&text=" + encodedTitle;
+      if (email) email.href = "mailto:?subject=" + encodedTitle + "&body=" + encodedUrl;
+
+      const copyUrl = async function (url) {
+        if (navigator.clipboard && window.isSecureContext) {
+          try {
+            await navigator.clipboard.writeText(url);
+            return true;
+          } catch (error) {}
+        }
+
+        shareInput.focus();
+        shareInput.select();
+        shareInput.setSelectionRange(0, shareInput.value.length);
+        return document.execCommand("copy");
+      };
+
+      copyButton.addEventListener("click", async function () {
+        const copied = await copyUrl(shareInput.value);
+        copyButton.textContent = copied ? "Copied" : "Select & Copy";
+        setTimeout(function () {
+          copyButton.textContent = originalText;
+        }, 1600);
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
       const gallery = document.querySelector("[data-product-gallery]");
       if (!gallery) return;
 

@@ -66,8 +66,7 @@ const greenplyPlatinumProduct = {
   subtitle: "2X Superior Plywood",
   description:
     "Bring the science of plywood home. Built with PEN technology for improved protection, Greenply Platinum Plywood is made for reliable furniture and interior applications.",
-  price: "₹67*",
-  priceUnit: "per square feet",
+  pdf: "/assets/pdfs/greenply-platinum-plywood.pdf",
   images: [
     "/assets/images/products/1.jpeg",
     "/assets/images/products/2.jpeg",
@@ -76,6 +75,14 @@ const greenplyPlatinumProduct = {
   ],
   sizes: ["8' x 4'", "7' x 4'", "6' x 4'"],
   thicknesses: ["4mm", "6mm", "9mm", "12mm", "18mm"],
+  specs: [
+    ["Product Type", "Plywood & Blockboard"],
+    ["Grade", "2X Superior Plywood"],
+    ["Available Sizes", "8' x 4', 7' x 4', 6' x 4'"],
+    ["Available Thickness", "4mm, 6mm, 9mm, 12mm, 18mm"],
+    ["Warranty", "30 Years"],
+    ["Certification", "IS 5509, CARB Certified"],
+  ],
   features: [
     "2X Fire Retardant",
     "2X Waterproof",

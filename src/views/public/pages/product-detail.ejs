@@ -60,36 +60,34 @@
           <p class="product-detail__eyebrow"><%= product.subtitle %></p>
           <p class="product-detail__copy"><%= product.description %></p>
 
-          <div class="product-detail__options">
-            <label>
-              <span>Size</span>
-              <select name="size">
-                <% product.sizes.forEach((size) => { %>
-                  <option><%= size %></option>
+          <div class="product-detail__specs">
+            <h2>Specifications</h2>
+            <table>
+              <tbody>
+                <% product.specs.forEach((spec) => { %>
+                  <tr>
+                    <th scope="row"><%= spec[0] %></th>
+                    <td><%= spec[1] %></td>
+                  </tr>
                 <% }) %>
-              </select>
-            </label>
-            <label>
-              <span>Thickness</span>
-              <select name="thickness">
-                <% product.thicknesses.forEach((thickness) => { %>
-                  <option><%= thickness %></option>
-                <% }) %>
-              </select>
-            </label>
+              </tbody>
+            </table>
           </div>
 
-          <div class="product-detail__price">
-            <span>Price</span>
-            <strong><%= product.price %></strong>
-            <small><%= product.priceUnit %></small>
-            <p>*The price is exclusive of taxes and may vary according to your location.</p>
+          <div class="product-detail__actions">
+            <a class="product-detail__inquiry" href="#product-order">
+              <span>Make an Inquiry</span>
+              <i class="ti ti-message-circle"></i>
+            </a>
+            <a class="product-detail__download" href="<%= product.pdf %>" download>
+              <span>Download PDF</span>
+              <i class="ti ti-download"></i>
+            </a>
+            <button class="product-detail__share" type="button" data-bs-toggle="modal" data-bs-target="#productShareModal">
+              <span>Share</span>
+              <i class="ti ti-share-3"></i>
+            </button>
           </div>
-
-          <a class="product-detail__inquiry" href="#product-order">
-            <span>Make an Inquiry</span>
-            <i class="ti ti-message-circle"></i>
-          </a>
 
           <div class="product-detail__tabs">
             <ul class="nav" role="tablist">
@@ -147,20 +145,9 @@
                   <label for="enquiryProduct">Product *</label>
                   <input type="text" name="enquiry-product" id="enquiryProduct" value="<%= product.title %>" readonly required />
                 </div>
-                <div class="quote-maker__split">
-                  <div class="quote-maker__field">
-                    <label for="enquiryQuantity">Quantity *</label>
-                    <input type="number" name="enquiry-quantity" id="enquiryQuantity" min="1" placeholder="Enter quantity" required />
-                  </div>
-                  <div class="quote-maker__field">
-                    <label for="enquiryUnit">Unit *</label>
-                    <select name="enquiry-unit" id="enquiryUnit" required>
-                      <option value="">Select</option>
-                      <option value="Sq. Ft.">Sq. Ft.</option>
-                      <option value="Sheets">Sheets</option>
-                      <option value="Pieces">Pieces</option>
-                    </select>
-                  </div>
+                <div class="quote-maker__field">
+                  <label for="enquiryQuantity">Quantity *</label>
+                  <input type="number" name="enquiry-quantity" id="enquiryQuantity" min="1" placeholder="Enter quantity" required />
                 </div>
                 <div class="quote-maker__split">
                   <div class="quote-maker__field">
@@ -223,4 +210,37 @@
       </div>
     </div>
   </section>
+
+  <div class="modal fade product-share-modal" id="productShareModal" tabindex="-1" aria-labelledby="productShareModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="product-share-modal__body">
+          <button class="product-share-modal__close" type="button" data-bs-dismiss="modal" aria-label="Close share modal">
+            <i class="ti ti-x"></i>
+          </button>
+          <h2 id="productShareModalTitle">Share this product</h2>
+          <input type="text" value="" readonly data-share-url aria-label="Product page link" />
+          <button class="product-share-modal__copy" type="button" data-copy-share-url>Copy Link</button>
+          <div class="product-share-modal__buttons" aria-label="Share options">
+            <a href="#" target="_blank" rel="noopener" data-share-whatsapp>
+              <i class="ti ti-brand-whatsapp"></i>
+              <span>WhatsApp</span>
+            </a>
+            <a href="#" target="_blank" rel="noopener" data-share-facebook>
+              <i class="ti ti-brand-facebook"></i>
+              <span>Facebook</span>
+            </a>
+            <a href="#" target="_blank" rel="noopener" data-share-x>
+              <i class="ti ti-brand-x"></i>
+              <span>X</span>
+            </a>
+            <a href="#" data-share-email>
+              <i class="ti ti-mail"></i>
+              <span>Email</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </main>

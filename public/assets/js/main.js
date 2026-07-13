@@ -374,7 +374,9 @@
         });
 
         $(".navbar__item.navbar__item--has-children > a").on("click", function(e) {
-            e.preventDefault();
+            if ($(this).attr("href") === "#") {
+                e.preventDefault();
+            }
         });
 
         $(window).on("resize", function() {

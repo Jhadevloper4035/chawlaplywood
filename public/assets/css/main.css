@@ -14188,8 +14188,7 @@ span {
     margin: 0;
 }
 
-.product-detail__options span,
-.product-detail__price > span {
+.product-detail__options span {
     color: #0f6b43;
     font-size: 12px;
     line-height: 16px;
@@ -14209,39 +14208,56 @@ span {
     padding: 10px 12px;
 }
 
-.product-detail__price {
+.product-detail__specs {
     margin-bottom: 28px;
 }
 
-.product-detail__price strong {
-    display: inline-block;
-    color: #0f6b43;
-    font-size: 42px;
-    line-height: 44px;
-    font-weight: 700;
-    letter-spacing: 0;
-    margin-top: 4px;
-}
-
-.product-detail__price small {
-    color: #4f4a45;
-    font-size: 13px;
-    line-height: 18px;
+.product-detail__specs h2 {
+    color: var(--template-color);
+    font-family: var(--template-font);
+    font-size: 22px;
+    line-height: 28px;
     font-weight: 500;
     letter-spacing: 0;
+    margin-bottom: 14px;
 }
 
-.product-detail__price p {
-    max-width: 360px;
-    color: #7d7771;
-    font-size: 12px;
-    line-height: 18px;
+.product-detail__specs table {
+    width: 100%;
+    border-collapse: collapse;
+    border-top: 1px solid #d8e1d4;
+}
+
+.product-detail__specs th,
+.product-detail__specs td {
+    border-bottom: 1px solid #d8e1d4;
+    color: #4f4a45;
+    font-size: 14px;
+    line-height: 20px;
     font-weight: 400;
     letter-spacing: 0;
-    margin: 4px 0 0;
+    padding: 11px 0;
+    vertical-align: top;
 }
 
-.product-detail__inquiry {
+.product-detail__specs th {
+    width: 44%;
+    color: #2d2325;
+    font-weight: 500;
+    padding-right: 16px;
+}
+
+.product-detail__actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 34px;
+}
+
+.product-detail__inquiry,
+.product-detail__download,
+.product-detail__share {
     min-height: 46px;
     display: inline-flex;
     align-items: center;
@@ -14254,10 +14270,11 @@ span {
     font-weight: 600;
     letter-spacing: 0.01em;
     padding: 8px 8px 8px 18px;
-    margin-bottom: 34px;
 }
 
-.product-detail__inquiry i {
+.product-detail__inquiry i,
+.product-detail__download i,
+.product-detail__share i {
     width: 30px;
     height: 30px;
     display: inline-flex;
@@ -14266,6 +14283,112 @@ span {
     border-radius: 50%;
     background-color: #0f6b43;
     color: #ffffff;
+    font-size: 18px;
+}
+
+.product-detail__share {
+    background-color: #ffffff;
+}
+
+.product-detail__download {
+    background-color: #0f6b43;
+    color: #ffffff;
+}
+
+.product-detail__download i {
+    background-color: #ffffff;
+    color: #0f6b43;
+}
+
+.product-share-modal .modal-content {
+    border: 0;
+    border-radius: 0;
+}
+
+.product-share-modal__body {
+    position: relative;
+    padding: 34px;
+}
+
+.product-share-modal__close {
+    position: absolute;
+    inset-block-start: 18px;
+    inset-inline-end: 18px;
+    width: 34px;
+    height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #d8e1d4;
+    background-color: #ffffff;
+    color: #0f6b43;
+    font-size: 18px;
+}
+
+.product-share-modal__body h2 {
+    color: var(--template-color);
+    font-family: var(--template-font);
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: 500;
+    letter-spacing: 0;
+    margin-bottom: 18px;
+}
+
+.product-share-modal__body input {
+    width: 100%;
+    min-height: 50px;
+    border: 1px solid #d8e1d4;
+    color: #4f4a45;
+    font-family: var(--template-font);
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    letter-spacing: 0;
+    padding: 12px 14px;
+    margin-bottom: 18px;
+}
+
+.product-share-modal__copy {
+    min-height: 46px;
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #0f6b43;
+    background-color: #0f6b43;
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 0.01em;
+    margin-bottom: 16px;
+    cursor: pointer;
+}
+
+.product-share-modal__buttons {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.product-share-modal__buttons a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: 1px solid #d8e1d4;
+    color: #0f6b43;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 500;
+    letter-spacing: 0;
+    padding: 10px;
+}
+
+.product-share-modal__buttons i {
     font-size: 18px;
 }
 
@@ -19174,9 +19297,3 @@ span {
         flex-wrap: wrap;
     }
 }
-
-
-
-/* ==== Chawla footer styles end ==== */
-
-/*# sourceMappingURL=main.css.map */
