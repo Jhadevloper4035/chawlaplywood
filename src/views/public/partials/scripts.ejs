@@ -105,3 +105,48 @@
       });
     });
   </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const gallery = document.querySelector("[data-product-gallery]");
+      if (!gallery) return;
+
+      const preview = gallery.querySelector("[data-product-preview]");
+      const zoomArea = gallery.querySelector("[data-product-zoom]");
+      const magnifier = gallery.querySelector(".product-detail__magnifier");
+      const thumbs = gallery.querySelectorAll("[data-product-thumb]");
+
+      const setMagnifierImage = function () {
+        if (!magnifier || !preview) return;
+        magnifier.style.backgroundImage = 'url("' + preview.src + '")';
+      };
+
+      setMagnifierImage();
+
+      if (zoomArea && magnifier && preview) {
+        zoomArea.addEventListener("pointermove", function (event) {
+          const rect = zoomArea.getBoundingClientRect();
+          const x = ((event.clientX - rect.left) / rect.width) * 100;
+          const y = ((event.clientY - rect.top) / rect.height) * 100;
+
+          magnifier.style.left = event.clientX - rect.left + "px";
+          magnifier.style.top = event.clientY - rect.top + "px";
+          magnifier.style.backgroundPosition = x + "% " + y + "%";
+          zoomArea.classList.add("is-zooming");
+        });
+
+        zoomArea.addEventListener("pointerleave", function () {
+          zoomArea.classList.remove("is-zooming");
+        });
+      }
+
+      thumbs.forEach(function (thumb) {
+        thumb.addEventListener("click", function () {
+          preview.src = thumb.dataset.productThumb;
+          setMagnifierImage();
+          thumbs.forEach(function (item) {
+            item.classList.toggle("active", item === thumb);
+          });
+        });
+      });
+    });
+  </script>

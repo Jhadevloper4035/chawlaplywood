@@ -12,6 +12,7 @@ router.get("/", homeController.index);
 router.get("/default", homeController.index);
 router.get("/default/", homeController.index);
 router.get("/products", homeController.products);
+router.get("/product/greenply-platinum-plywood", homeController.productDetail);
 
 router.post("/blogs", validate(blogValidator.createBlog), contentController.createBlog);
 router.post("/products", validate(productValidator.createProduct), contentController.createProduct);

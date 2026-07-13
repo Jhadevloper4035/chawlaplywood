@@ -1,0 +1,226 @@
+<main>
+
+    <section class="service-banner products-banner pb-140">
+    <div class="container">
+      <div class="row align-items-center gutter-24">
+        <div class="col-12 col-md-8 col-lg-9">
+          <div class="service-banner__intro">
+            <h2 class="title-animation title-md fw-5 text-white neutral-top">
+              Products
+            </h2>
+          </div>
+        </div>
+        <div class="col-12 col-md-4 col-lg-3">
+          <div class="service-banner__text">
+            <p class="text-white fw-5">
+              Explore laminates, boards, flooring, and decorative surfaces.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="service-banner-bg">
+      <img src="/assets/images/banner/mdf-board.jpeg" alt="Chawla Plywood products" class="flip-img" />
+    </div>
+  </section>
+
+
+  <nav class="products-breadcrumb" aria-label="Breadcrumb">
+    <div class="container-lg">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/products"><%= product.category %></a></li>
+        <li aria-current="page"><%= product.title %></li>
+      </ol>
+    </div>
+  </nav>
+
+  <section class="product-detail pt-80 pb-140">
+    <div class="container-lg">
+      <div class="product-detail__layout">
+        <div class="product-detail__gallery" data-product-gallery aria-label="<%= product.title %> images">
+          <figure class="product-detail__preview" data-product-zoom>
+            <img src="<%= product.images[0] %>" alt="<%= product.title %>" data-product-preview />
+            <span class="product-detail__zoom-icon" aria-hidden="true">
+              <i class="ti ti-search"></i>
+            </span>
+            <span class="product-detail__magnifier" aria-hidden="true"></span>
+          </figure>
+          <div class="product-detail__thumbs" aria-label="Application images">
+            <% product.images.forEach((image, index) => { %>
+              <button class="<%= index === 0 ? 'active' : '' %>" type="button" data-product-thumb="<%= image %>" aria-label="Show <%= product.title %> image <%= index + 1 %>">
+                <img src="<%= image %>" alt="<%= product.title %> thumbnail <%= index + 1 %>" />
+              </button>
+            <% }) %>
+          </div>
+        </div>
+
+        <div class="product-detail__summary">
+          <h1><%= product.title %></h1>
+          <p class="product-detail__eyebrow"><%= product.subtitle %></p>
+          <p class="product-detail__copy"><%= product.description %></p>
+
+          <div class="product-detail__options">
+            <label>
+              <span>Size</span>
+              <select name="size">
+                <% product.sizes.forEach((size) => { %>
+                  <option><%= size %></option>
+                <% }) %>
+              </select>
+            </label>
+            <label>
+              <span>Thickness</span>
+              <select name="thickness">
+                <% product.thicknesses.forEach((thickness) => { %>
+                  <option><%= thickness %></option>
+                <% }) %>
+              </select>
+            </label>
+          </div>
+
+          <div class="product-detail__price">
+            <span>Price</span>
+            <strong><%= product.price %></strong>
+            <small><%= product.priceUnit %></small>
+            <p>*The price is exclusive of taxes and may vary according to your location.</p>
+          </div>
+
+          <a class="product-detail__inquiry" href="#product-order">
+            <span>Make an Inquiry</span>
+            <i class="ti ti-message-circle"></i>
+          </a>
+
+          <div class="product-detail__tabs">
+            <ul class="nav" role="tablist">
+              <li role="presentation">
+                <button class="active" id="features-tab" data-bs-toggle="tab" data-bs-target="#features-panel" type="button" role="tab" aria-controls="features-panel" aria-selected="true">Features</button>
+              </li>
+              <li role="presentation">
+                <button id="warranty-tab" data-bs-toggle="tab" data-bs-target="#warranty-panel" type="button" role="tab" aria-controls="warranty-panel" aria-selected="false">Warranty</button>
+              </li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane fade show active" id="features-panel" role="tabpanel" aria-labelledby="features-tab">
+                <ul>
+                  <% product.features.forEach((feature) => { %>
+                    <li><%= feature %></li>
+                  <% }) %>
+                </ul>
+              </div>
+              <div class="tab-pane fade" id="warranty-panel" role="tabpanel" aria-labelledby="warranty-tab">
+                <p><%= product.warranty %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="quote-maker product-order pt-140 pb-140 template-bg" id="product-order">
+    <div class="container-lg">
+      <div class="row">
+        <div class="col-12">
+          <div class="quote-maker__intro product-order__intro text-center fade-up">
+            <p class="txt-light">(Order From Here)</p>
+            <h2 class="title-animation title-lg-sm fw-3 mt-12">
+              Product Enquiry
+            </h2>
+          </div>
+          <form class="quote-maker__form fade-up mt-80" action="#" method="post">
+            <div class="quote-maker__grid">
+              <div class="quote-maker__field">
+                <input type="text" name="enquiry-name" id="enquiryName" placeholder="Name *" required />
+              </div>
+              <div class="quote-maker__field">
+                <input type="tel" name="enquiry-mobile" id="enquiryMobile" placeholder="Mobile *" required />
+              </div>
+              <div class="quote-maker__field">
+                <input type="email" name="enquiry-email" id="enquiryEmail" placeholder="Email *" required />
+              </div>
+              <div class="quote-maker__field">
+                <input type="text" name="enquiry-city" id="enquiryCity" placeholder="City *" required />
+              </div>
+              <div class="quote-maker__stack">
+                <div class="quote-maker__field">
+                  <label for="enquiryProduct">Product *</label>
+                  <input type="text" name="enquiry-product" id="enquiryProduct" value="<%= product.title %>" readonly required />
+                </div>
+                <div class="quote-maker__split">
+                  <div class="quote-maker__field">
+                    <label for="enquiryQuantity">Quantity *</label>
+                    <input type="number" name="enquiry-quantity" id="enquiryQuantity" min="1" placeholder="Enter quantity" required />
+                  </div>
+                  <div class="quote-maker__field">
+                    <label for="enquiryUnit">Unit *</label>
+                    <select name="enquiry-unit" id="enquiryUnit" required>
+                      <option value="">Select</option>
+                      <option value="Sq. Ft.">Sq. Ft.</option>
+                      <option value="Sheets">Sheets</option>
+                      <option value="Pieces">Pieces</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="quote-maker__split">
+                  <div class="quote-maker__field">
+                    <label for="enquirySize">Size *</label>
+                    <select name="enquiry-size" id="enquirySize" required>
+                      <% product.sizes.forEach((size) => { %>
+                        <option><%= size %></option>
+                      <% }) %>
+                    </select>
+                  </div>
+                  <div class="quote-maker__field">
+                    <label for="enquiryThickness">Thickness *</label>
+                    <select name="enquiry-thickness" id="enquiryThickness" required>
+                      <% product.thicknesses.forEach((thickness) => { %>
+                        <option><%= thickness %></option>
+                      <% }) %>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="quote-maker__field quote-maker__field--textarea">
+                <textarea name="enquiry-message" id="enquiryMessage" placeholder="Message"></textarea>
+              </div>
+            </div>
+            <div class="quote-maker__cta text-center mt-80">
+              <button type="submit" class="btn-primary" aria-label="Send product enquiry" title="Send product enquiry">
+                <span class="btn-animated-text" data-text="Send Enquiry">Send Enquiry</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="product-detail-products pt-140 pb-140">
+    <div class="container-lg">
+      <div class="product-detail-products__block">
+        <div class="product-detail-products__heading">
+          <p>Related Products</p>
+          <h2>Explore Similar Products</h2>
+        </div>
+        <div class="product-detail-products__grid">
+          <% (relatedProducts || []).forEach((relatedProduct) => { %>
+            <%- include("../partials/product-card", { product: relatedProduct }) %>
+          <% }) %>
+        </div>
+      </div>
+
+      <div class="product-detail-products__block">
+        <div class="product-detail-products__heading">
+          <p>Most Recent View Products</p>
+          <h2>Recently Viewed Products</h2>
+        </div>
+        <div class="product-detail-products__grid">
+          <% (recentProducts || []).forEach((recentProduct) => { %>
+            <%- include("../partials/product-card", { product: recentProduct }) %>
+          <% }) %>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

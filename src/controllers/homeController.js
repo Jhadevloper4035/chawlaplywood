@@ -3,10 +3,11 @@ const { buildSeo } = require("../config/seo");
 const boardProducts = [
   {
     category: "designer-laminates",
-    tag: "WP",
+    tag: "GP",
     image: "/assets/images/products/1.jpeg",
-    alt: "Interior Grade MDF",
-    title: "Designer Laminates",
+    alt: "Greenply Platinum Plywood",
+    title: "Greenply Platinum Plywood",
+    href: "/product/greenply-platinum-plywood",
   },
   {
     category: "acrylic-laminates",
@@ -59,6 +60,39 @@ const boardProducts = [
   },
 ];
 
+const greenplyPlatinumProduct = {
+  title: "Greenply Platinum Plywood",
+  category: "Plywood & Blockboard",
+  subtitle: "2X Superior Plywood",
+  description:
+    "Bring the science of plywood home. Built with PEN technology for improved protection, Greenply Platinum Plywood is made for reliable furniture and interior applications.",
+  price: "₹67*",
+  priceUnit: "per square feet",
+  images: [
+    "/assets/images/products/1.jpeg",
+    "/assets/images/products/2.jpeg",
+    "/assets/images/category/designer-laminates_1.jpg",
+    "/assets/images/category/uv-boards_2.jpg",
+  ],
+  sizes: ["8' x 4'", "7' x 4'", "6' x 4'"],
+  thicknesses: ["4mm", "6mm", "9mm", "12mm", "18mm"],
+  features: [
+    "2X Fire Retardant",
+    "2X Waterproof",
+    "2X Money Back Warranty",
+    "IS 5509 Certified",
+    "30 Years Warranty",
+    "Zero formaldehyde emission for healthy interiors",
+    "CARB Certified",
+    "Borer- Fungus proof & Anti-Termite Guarantee (Preservative Treated as per IS 5539)",
+    "Virashield - Anti-viral and Anti-bacterial properties",
+    "4 Press Technology",
+    "Calibrated",
+    "Available at a price that mirrors excellence",
+  ],
+  warranty: "Warranty terms vary by size, thickness, and product application.",
+};
+
 exports.index = (req, res) => {
   res.render("public/layouts/main", {
     seo: buildSeo({
@@ -93,5 +127,20 @@ exports.products = (req, res) => {
     }),
     view: "pages/products",
     products: boardProducts,
+  });
+};
+
+exports.productDetail = (req, res) => {
+  res.render("public/layouts/main", {
+    seo: buildSeo({
+      title: `${greenplyPlatinumProduct.title} | Chawla Plywood`,
+      description: greenplyPlatinumProduct.description,
+      path: "/product/greenply-platinum-plywood",
+      image: greenplyPlatinumProduct.images[0],
+    }),
+    view: "pages/product-detail",
+    product: greenplyPlatinumProduct,
+    relatedProducts: boardProducts.slice(1, 5),
+    recentProducts: boardProducts.slice(4, 8),
   });
 };
