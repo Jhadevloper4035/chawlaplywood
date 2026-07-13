@@ -1,4 +1,54 @@
     <header class="header header-three motherwood-header">
+      <% /* Topbar temporarily hidden. */ if (false) { %>
+      <div class="motherwood-header__top">
+        <div class="container-lg">
+          <div class="motherwood-header__top-inner">
+            <div class="motherwood-header__social" aria-label="Social links">
+              <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">
+                <i class="fa-brands fa-facebook-f"></i>
+              </a>
+              <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+              <a href="https://x.com/" target="_blank" rel="noopener" aria-label="X" title="X">
+                <i class="fa-brands fa-x-twitter"></i>
+              </a>
+              <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube">
+                <i class="fa-brands fa-youtube"></i>
+              </a>
+              <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+                <i class="fa-brands fa-linkedin-in"></i>
+              </a>
+            </div>
+
+            <nav class="motherwood-header__utility" aria-label="Quick links">
+              <a href="/default/contact-us">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Dealer Locator</span>
+              </a>
+              <a href="/default/our-services">
+                <i class="fa-regular fa-newspaper"></i>
+                <span>E-Catalogue</span>
+              </a>
+              <a href="/default/news">
+                <i class="fa-regular fa-pen-to-square"></i>
+                <span>Blogs</span>
+              </a>
+              <a href="/default/" aria-label="Global website">
+                <i class="fa-solid fa-globe"></i>
+              </a>
+              <a class="motherwood-header__flag-link" href="/default/" aria-label="India website">
+                <span class="motherwood-header__flag" aria-hidden="true">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </span>
+              </a>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <% } %>
       <div class="container-lg">
         <div class="row">
           <div class="col-12">
@@ -13,6 +63,18 @@
                 <div class="navbar__menu-wrapper">
                   <div class="navbar__menu d-none d-xl-block">
                     <ul class="navbar__list">
+
+                       <li class="navbar__item nav-fade">
+                        <a href="/">Home</a>
+                      </li>
+
+
+                       <li class="navbar__item nav-fade">
+                        <a href="/">About Us</a>
+                      </li>
+
+
+
                       <li class="navbar__item navbar__item--has-children nav-fade">
                         <a href="#" class="navbar__dropdown-label dropdown-label-alter">Corporate</a>
                         <ul class="navbar__sub-menu">
@@ -68,7 +130,7 @@
                             <a href="#" class="navbar__dropdown-label navbar__dropdown-label-sub">Decorative Sheets</a>
                             <ul class="navbar__sub-menu navbar__sub-menu__nested">
                               <li>
-                                <a href="/default/our-services">Designer Laminates</a>
+                                <a href="/products">Designer Laminates</a>
                               </li>
                               <li>
                                 <a href="/default/service-details">Acrylic Laminates</a>

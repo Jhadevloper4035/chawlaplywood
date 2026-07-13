@@ -11,6 +11,7 @@ const router = express.Router();
 router.get("/", homeController.index);
 router.get("/default", homeController.index);
 router.get("/default/", homeController.index);
+router.get("/products", homeController.products);
 
 router.post("/blogs", validate(blogValidator.createBlog), contentController.createBlog);
 router.post("/products", validate(productValidator.createProduct), contentController.createProduct);

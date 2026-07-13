@@ -1,0 +1,95 @@
+<% const productList = typeof products !== "undefined" && Array.isArray(products) ? products : []; %>
+<% const filterGroups = [
+  {
+    title: "Filter By Category",
+    options: ["Laminates", "MDF", "HDHMR", "HDF Flooring", "UV Boards", "Particle Board", "Acrylic Boards"],
+  },
+  {
+    title: "Filter By Subcategory",
+    options: ["Acrylic", "0.8mm Calplus", "Merinolam", "Merinolam Postforming", "Acrylic Plus", "Clear Touch", "Argentum", "Endura", "Essenza", "Fish Bone", "French Bleed", "Handscrapped", "Midas", "Platina", "Radiance", "Tesa Serene"],
+  },
+  {
+    title: "Filter By Material",
+    options: ["Laminate", "Acrylic", "MDF", "HDHMR", "HDF", "Particle Board", "UV Board"],
+  },
+  {
+    title: "Filter By Brand",
+    options: ["Merino", "Action Tesa", "Crossbond"],
+  },
+]; %>
+
+<main>
+  <section class="service-banner products-banner pb-140">
+    <div class="container">
+      <div class="row align-items-center gutter-24">
+        <div class="col-12 col-md-8 col-lg-9">
+          <div class="service-banner__intro">
+            <h2 class="title-animation title-md fw-5 text-white neutral-top">
+              Products
+            </h2>
+          </div>
+        </div>
+        <div class="col-12 col-md-4 col-lg-3">
+          <div class="service-banner__text">
+            <p class="text-white fw-5">
+              Explore laminates, boards, flooring, and decorative surfaces.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="service-banner-bg">
+      <img src="/assets/images/service-banner.webp" alt="Chawla Plywood products" class="flip-img" />
+    </div>
+  </section>
+
+  <nav class="products-breadcrumb" aria-label="Breadcrumb">
+    <div class="container-lg">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/products">Products</a></li>
+        <li aria-current="page">All Products</li>
+      </ol>
+    </div>
+  </nav>
+
+  <section class="all-products pt-80 pb-140">
+    <div class="container-lg">
+      <div class="row gutter-30">
+        <aside class="col-12 col-lg-3">
+          <form class="all-products__filters" aria-label="Product filters">
+            <% filterGroups.forEach((group) => { %>
+              <fieldset class="all-products__filter-group">
+                <legend><%= group.title %></legend>
+                <% group.options.forEach((option, index) => { %>
+                  <% const inputId = `${group.title}-${index}`.replace(/[^a-z0-9]+/gi, "-").toLowerCase(); %>
+                  <label class="all-products__filter-label" for="<%= inputId %>">
+                    <input class="all-products__filter-checkbox" id="<%= inputId %>" type="checkbox" name="filter" value="<%= option %>" />
+                    <span><%= option %></span>
+                  </label>
+                <% }) %>
+              </fieldset>
+            <% }) %>
+          </form>
+        </aside>
+
+        <div class="col-12 col-lg-9">
+          <div class="all-products__applied is-empty" data-applied-filters aria-live="polite">
+            <span class="all-products__applied-title">Applied Filters</span>
+            <div class="all-products__applied-list" data-applied-filter-list></div>
+          </div>
+
+          <div class="all-products__grid">
+            <% productList.forEach((product) => { %>
+              <%- include("../partials/product-card", { product }) %>
+            <% }) %>
+          </div>
+
+          <div class="all-products__load-more">
+            <button type="button">Load More</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

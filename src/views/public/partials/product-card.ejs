@@ -1,7 +1,11 @@
+<% const productHref = product.href || "/products"; %>
 <article class="finish-card fade-up" data-category="<%= product.category %>" data-finish-card>
-  <div class="finish-card__thumb finish-card__sample">
-    <span class="finish-card__tag"><%= product.tag %></span>
-    <img src="<%= product.image %>" alt="<%= product.alt %>" />
-  </div>
-  <h3><%= product.title %></h3>
+  <a class="finish-card__link" href="<%= productHref %>">
+    <div class="finish-card__thumb finish-card__sample">
+      <span class="finish-card__tag"><%= product.tag %></span>
+      <img src="<%= product.image %>" alt="<%= product.alt %>" />
+    </div>
+    <h3><%= product.title %></h3>
+  </a>
+  <a class="finish-card__button" href="<%= productHref %>" aria-label="View <%= product.title %>">View Product</a>
 </article>

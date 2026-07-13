@@ -81,3 +81,17 @@ exports.index = (req, res) => {
     boardProducts,
   });
 };
+
+exports.products = (req, res) => {
+  res.render("public/layouts/main", {
+    seo: buildSeo({
+      title: "Products | Chawla Plywood",
+      description:
+        "Browse Chawla Plywood laminates, veneers, acrylic boards, UV boards, plywood, and interior board products.",
+      path: "/products",
+      image: "/assets/images/products/1.jpeg",
+    }),
+    view: "pages/products",
+    products: boardProducts,
+  });
+};

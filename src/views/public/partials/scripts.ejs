@@ -66,3 +66,42 @@
       });
     });
   </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const appliedFilters = document.querySelector("[data-applied-filters]");
+      const appliedList = document.querySelector("[data-applied-filter-list]");
+      const filterInputs = document.querySelectorAll(".all-products__filter-checkbox");
+
+      if (!appliedFilters || !appliedList || !filterInputs.length) return;
+
+      const renderAppliedFilters = function () {
+        appliedList.innerHTML = "";
+
+        filterInputs.forEach(function (input) {
+          if (!input.checked) return;
+
+          const chip = document.createElement("span");
+          chip.className = "all-products__filter-chip";
+          chip.textContent = input.value;
+
+          const removeButton = document.createElement("button");
+          removeButton.type = "button";
+          removeButton.textContent = "x";
+          removeButton.setAttribute("aria-label", "Remove " + input.value);
+          removeButton.addEventListener("click", function () {
+            input.checked = false;
+            renderAppliedFilters();
+          });
+
+          chip.appendChild(removeButton);
+          appliedList.appendChild(chip);
+        });
+
+        appliedFilters.classList.toggle("is-empty", !appliedList.children.length);
+      };
+
+      filterInputs.forEach(function (input) {
+        input.addEventListener("change", renderAppliedFilters);
+      });
+    });
+  </script>
