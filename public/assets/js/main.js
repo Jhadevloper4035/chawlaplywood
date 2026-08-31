@@ -755,6 +755,40 @@
             });
         }
 
+        if ($(".featured-interiors__slider").length > 0) {
+            var featuredInteriorsSlider = new Swiper(".featured-interiors__slider", {
+                loop: true,
+                speed: 900,
+                slidesPerView: 1,
+                slidesPerGroup: 1,
+                spaceBetween: 20,
+                grabCursor: true,
+                autoplay: {
+                    delay: 3500,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: true,
+                },
+                pagination: {
+                    el: ".featured-interiors__pagination",
+                    clickable: true,
+                },
+                breakpoints: {
+                    576: {
+                        slidesPerView: 2,
+                        spaceBetween: 22,
+                    },
+                    992: {
+                        slidesPerView: 3,
+                        spaceBetween: 26,
+                    },
+                    1200: {
+                        slidesPerView: 4,
+                        spaceBetween: 26,
+                    },
+                },
+            });
+        }
+
         /**
          * ======================================
          * 12. project four slider
@@ -1151,9 +1185,9 @@
                 // improved parallax movement
                 tl_ImageParallax.fromTo(
                     $animImageParallax, {
-                        yPercent: -20
+                        yPercent: -10
                     }, {
-                        yPercent: 20,
+                        yPercent: 10,
                         ease: "none"
                     },
                 );
@@ -1171,7 +1205,6 @@
 
                 tl_aipZoomIn.from($aipInner, {
                     duration: 1.5,
-                    autoAlpha: 0,
                     scale: 1.2,
                     ease: Power2.easeOut,
                     clearProps: "all",
@@ -2731,6 +2764,44 @@
         }
 
         initPreloaderAnimations();
+
+        $(".brand-faq details > summary").on("click", function(event) {
+            event.preventDefault();
+
+            const details = this.parentElement;
+            const $answer = $(details).children("p");
+            gsap.killTweensOf($answer);
+
+            if (details.open) {
+                gsap.to($answer, {
+                    height: 0,
+                    opacity: 0,
+                    duration: 0.28,
+                    ease: "power2.in",
+                    onComplete: function() {
+                        details.open = false;
+                        gsap.set($answer, { clearProps: "height,opacity" });
+                        ScrollTrigger.refresh();
+                    },
+                });
+                return;
+            }
+
+            details.open = true;
+            gsap.fromTo($answer, {
+                height: 0,
+                opacity: 0,
+            }, {
+                height: "auto",
+                opacity: 1,
+                duration: 0.42,
+                ease: "power3.out",
+                onComplete: function() {
+                    gsap.set($answer, { clearProps: "height,opacity" });
+                    ScrollTrigger.refresh();
+                },
+            });
+        });
 
         /**
          * ======================================

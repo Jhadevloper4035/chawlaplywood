@@ -254,6 +254,8 @@
         top: 0%;
         inset-inline-start: 100%;
         min-width: 230px;
+        max-height: 70vh;
+        overflow-y: auto;
 
         &::before {
             content: "";

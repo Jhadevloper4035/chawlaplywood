@@ -75,10 +75,10 @@
           </div>
 
           <div class="product-detail__actions">
-            <a class="product-detail__inquiry" href="#product-order">
+            <button class="product-detail__inquiry" type="button" data-bs-toggle="modal" data-bs-target="#productEnquiryModal">
               <span>Make an Inquiry</span>
               <i class="ti ti-message-circle"></i>
-            </a>
+            </button>
             <a class="product-detail__download" href="<%= product.pdf %>" download>
               <span>Download PDF</span>
               <i class="ti ti-download"></i>
@@ -111,73 +111,6 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="quote-maker product-order pt-140 pb-140 template-bg" id="product-order">
-    <div class="container-lg">
-      <div class="row">
-        <div class="col-12">
-          <div class="quote-maker__intro product-order__intro text-center fade-up">
-            <p class="txt-light">(Order From Here)</p>
-            <h2 class="title-animation title-lg-sm fw-3 mt-12">
-              Product Enquiry
-            </h2>
-          </div>
-          <form class="quote-maker__form fade-up mt-80" action="#" method="post">
-            <div class="quote-maker__grid">
-              <div class="quote-maker__field">
-                <input type="text" name="enquiry-name" id="enquiryName" placeholder="Name *" required />
-              </div>
-              <div class="quote-maker__field">
-                <input type="tel" name="enquiry-mobile" id="enquiryMobile" placeholder="Mobile *" required />
-              </div>
-              <div class="quote-maker__field">
-                <input type="email" name="enquiry-email" id="enquiryEmail" placeholder="Email *" required />
-              </div>
-              <div class="quote-maker__field">
-                <input type="text" name="enquiry-city" id="enquiryCity" placeholder="City *" required />
-              </div>
-              <div class="quote-maker__stack">
-                <div class="quote-maker__field">
-                  <label for="enquiryProduct">Product *</label>
-                  <input type="text" name="enquiry-product" id="enquiryProduct" value="<%= product.title %>" readonly required />
-                </div>
-                <div class="quote-maker__field">
-                  <label for="enquiryQuantity">Quantity *</label>
-                  <input type="number" name="enquiry-quantity" id="enquiryQuantity" min="1" placeholder="Enter quantity" required />
-                </div>
-                <div class="quote-maker__split">
-                  <div class="quote-maker__field">
-                    <label for="enquirySize">Size *</label>
-                    <select name="enquiry-size" id="enquirySize" required>
-                      <% product.sizes.forEach((size) => { %>
-                        <option><%= size %></option>
-                      <% }) %>
-                    </select>
-                  </div>
-                  <div class="quote-maker__field">
-                    <label for="enquiryThickness">Thickness *</label>
-                    <select name="enquiry-thickness" id="enquiryThickness" required>
-                      <% product.thicknesses.forEach((thickness) => { %>
-                        <option><%= thickness %></option>
-                      <% }) %>
-                    </select>
-                  </div>
-                </div>
-              </div>
-              <div class="quote-maker__field quote-maker__field--textarea">
-                <textarea name="enquiry-message" id="enquiryMessage" placeholder="Message"></textarea>
-              </div>
-            </div>
-            <div class="quote-maker__cta text-center mt-80">
-              <button type="submit" class="btn-primary" aria-label="Send product enquiry" title="Send product enquiry">
-                <span class="btn-animated-text" data-text="Send Enquiry">Send Enquiry</span>
-              </button>
-            </div>
-          </form>
         </div>
       </div>
     </div>
@@ -239,6 +172,73 @@
               <span>Email</span>
             </a>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade product-enquiry-modal" id="productEnquiryModal" tabindex="-1" aria-labelledby="productEnquiryModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-body product-enquiry-modal__body" data-lenis-prevent>
+          <button class="product-share-modal__close" type="button" data-bs-dismiss="modal" aria-label="Close product enquiry form">
+            <i class="ti ti-x"></i>
+          </button>
+          <div class="quote-maker__intro product-order__intro text-center">
+            <h2 id="productEnquiryModalTitle" class="title-lg-sm fw-3 mt-12">Product Enquiry</h2>
+          </div>
+          <form class="quote-maker__form" action="#" method="post">
+            <div class="quote-maker__grid">
+              <div class="quote-maker__field">
+                <input type="text" name="enquiry-name" id="enquiryName" placeholder="Name *" required />
+              </div>
+              <div class="quote-maker__field">
+                <input type="tel" name="enquiry-mobile" id="enquiryMobile" placeholder="Mobile *" required />
+              </div>
+              <div class="quote-maker__field">
+                <input type="email" name="enquiry-email" id="enquiryEmail" placeholder="Email *" required />
+              </div>
+              <div class="quote-maker__field">
+                <input type="text" name="enquiry-city" id="enquiryCity" placeholder="City *" required />
+              </div>
+              <div class="quote-maker__stack">
+                <div class="quote-maker__field">
+                  <label for="enquiryProduct">Product *</label>
+                  <input type="text" name="enquiry-product" id="enquiryProduct" value="<%= product.title %>" readonly required />
+                </div>
+                <div class="quote-maker__field">
+                  <label for="enquiryQuantity">Quantity *</label>
+                  <input type="number" name="enquiry-quantity" id="enquiryQuantity" min="1" placeholder="Enter quantity" required />
+                </div>
+                <div class="quote-maker__split">
+                  <div class="quote-maker__field">
+                    <label for="enquirySize">Size *</label>
+                    <select name="enquiry-size" id="enquirySize" required>
+                      <% product.sizes.forEach((size) => { %>
+                        <option><%= size %></option>
+                      <% }) %>
+                    </select>
+                  </div>
+                  <div class="quote-maker__field">
+                    <label for="enquiryThickness">Thickness *</label>
+                    <select name="enquiry-thickness" id="enquiryThickness" required>
+                      <% product.thicknesses.forEach((thickness) => { %>
+                        <option><%= thickness %></option>
+                      <% }) %>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="quote-maker__field quote-maker__field--textarea">
+                <textarea name="enquiry-message" id="enquiryMessage" placeholder="Message"></textarea>
+              </div>
+            </div>
+            <div class="quote-maker__cta text-center">
+              <button type="submit" class="btn-primary" aria-label="Send product enquiry" title="Send product enquiry">
+                <span class="btn-animated-text" data-text="Send Enquiry">Send Enquiry</span>
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </div>

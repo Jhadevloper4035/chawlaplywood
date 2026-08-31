@@ -1,3 +1,5 @@
+    <% const headerMenu = typeof footerData !== "undefined" ? footerData : {}; %>
+    <% const headerCategories = headerMenu.productCategoryGroups || []; %>
     <header class="header header-three motherwood-header">
       <% /* Topbar temporarily hidden. */ if (false) { %>
       <div class="motherwood-header__top">
@@ -87,73 +89,16 @@
                       <li class="navbar__item navbar__item--has-children nav-fade">
                         <a href="/products" class="navbar__dropdown-label dropdown-label-alter">Products</a>
                         <ul class="navbar__sub-menu">
-							<li class="navbar__item navbar__item--has-children">
-                            <a href="/products" class="navbar__dropdown-label navbar__dropdown-label-sub">Engineered Wood Panels</a>
-                            <ul class="navbar__sub-menu navbar__sub-menu__nested">
-                              <li>
-                                <a href="/products">HDHMR Boards</a>
-                              </li>
-                              <li>
-                                <a href="/products">MDF Boards</a>
-                              </li>
-                              <li>
-                                <a href="/products">Particle Boards</a>
-                              </li>
-                              <li>
-                                <a href="/products">Plywood</a>
-                              </li>
-                            </ul>
-                          </li>
-						  <li class="navbar__item navbar__item--has-children">
-                            <a href="/products" class="navbar__dropdown-label navbar__dropdown-label-sub">Wall & Ceiling Solutions</a>
-                            <ul class="navbar__sub-menu navbar__sub-menu__nested">
-                              
-							  <li>
-                                <a href="/products">Wall Panels</a>
-                              </li>
-							  <li>
-                                <a href="/products">Soft Panels</a>
-                              </li>
-							  <li>
-                                <a href="/products">Charcoal Panels</a>
-                              </li>
-							  <li>
-                                <a href="/products">Charcoal Louvers</a>
-                              </li>
-							  <li>
-                                <a href="/products">PVC Louvers</a>
-                              </li>
-
-                            </ul>
-                          </li>
-                          <li class="navbar__item navbar__item--has-children">
-                            <a href="/products" class="navbar__dropdown-label navbar__dropdown-label-sub">Decorative Sheets</a>
-                            <ul class="navbar__sub-menu navbar__sub-menu__nested">
-                              <li>
-                                <a href="/products">Designer Laminates</a>
-                              </li>
-                              <li>
-                                <a href="/products">Acrylic Laminates</a>
-                              </li>
-                              <li>
-                                <a href="/products">Veneers</a>
-                              </li>
-                              <li>
-                                <a href="/products">Acrylic Boards</a>
-                              </li>
-                              <li>
-                                <a href="/products">UV Boards</a>
-                              </li>
-                            </ul>
-                          </li>
-                          
-						  
-						  <li class="navbar__item ">
-							<a href="/products">Flush Doors</a>
-						  </li>
-						  <li class="navbar__item ">
-							<a href="/products">Flooring</a>
-						  </li>
+                          <% headerCategories.forEach((item) => { %>
+                            <li class="navbar__item navbar__item--has-children">
+                              <a href="<%= item.href %>" class="navbar__dropdown-label navbar__dropdown-label-sub"><%= item.label %></a>
+                              <ul class="navbar__sub-menu navbar__sub-menu__nested">
+                                <% item.children.forEach((child) => { %>
+                                  <li><a href="<%= child.href %>"><%= child.label %></a></li>
+                                <% }) %>
+                              </ul>
+                            </li>
+                          <% }) %>
                         </ul>
                       </li>
                       <li class="navbar__item nav-fade">

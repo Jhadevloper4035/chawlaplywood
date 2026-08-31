@@ -1,0 +1,41 @@
+<main>
+  <section class="service-banner brand-page-banner">
+    <div class="container"><div class="row align-items-center gutter-24"><div class="col-12 col-md-8 col-lg-9"><div class="service-banner__intro"><h1 class="title-animation title-md fw-5 text-white neutral-top">Greenlam Laminates</h1></div></div><div class="col-12 col-md-4 col-lg-3"><div class="service-banner__text"><p class="text-white fw-5">Decorative and performance surface solutions.</p></div></div></div></div>
+    <div class="service-banner-bg"><img src="/assets/images/category/designer-laminates_1.jpg" alt="Greenlam laminate surfaces" class="flip-img" /></div>
+  </section>
+
+  <nav class="products-breadcrumb" aria-label="Breadcrumb"><div class="container-lg"><ol><li><a href="/">Home</a></li><li><a href="/brand/greenlam">Greenlam</a></li><li aria-current="page">Laminates</li></ol></div></nav>
+
+  <section class="brand-about" aria-labelledby="greenlamLaminatesAboutTitle"><div class="container-lg"><div class="brand-about__content"><h2 id="greenlamLaminatesAboutTitle">Greenlam Laminates</h2><span class="brand-about__divider" aria-hidden="true"></span><p>Greenlam laminate solutions include decorative, high-gloss, digital, performance, and application-specific surfaces. Choose the appropriate range for furniture, countertops, doors, and other residential or commercial interior projects.</p></div></div></section>
+
+  <% const laminateCategories = [
+    ["HPL", "High-pressure laminate surfaces for furniture and interior applications."],
+    ["HD Gloss", "High-gloss laminate surfaces for contemporary furniture and cabinetry."],
+    ["Digital/Custom", "Custom decorative laminate options for distinctive interior concepts."],
+    ["Unicore", "Solid-colour core laminates for clean, coordinated finished edges."],
+    ["Infinia Countertop", "Countertop laminate solutions for kitchens and work surfaces."],
+    ["Chalk Grade", "Writable laminate surfaces for educational and creative spaces."],
+    ["Marker Grade", "Dry-erase laminate surfaces for offices, classrooms, and collaboration areas."],
+    ["Fire Retardant", "Performance laminates designed for applications with fire-safety requirements."],
+    ["ESD Laminates", "Electrostatic dissipative laminate solutions for specialised environments."],
+    ["Door Special", "Decorative laminate options developed for door applications."],
+    ["Countertop", "Durable decorative surfaces for kitchen and workspace countertops."],
+    ["VRB", "Wood-inspired laminate finishes for warm, natural-looking interiors."],
+    ["Four X Ten", "Large-format laminate sheets for expansive surface applications."],
+    ["Door Laminates", "Surface solutions for residential and commercial doors."],
+    ["New Arrivals", "The latest Greenlam designs and surface collections."],
+    ["Lexus Collection (1.50 mm)", "A premium laminate collection with a 1.50 mm surface option."],
+  ]; %>
+  <section class="brand-types" aria-labelledby="greenlamLaminatesCategoriesTitle"><div class="container-lg"><div class="brand-types__intro"><h2 id="greenlamLaminatesCategoriesTitle">Laminate Categories</h2><span class="brand-about__divider" aria-hidden="true"></span></div><div class="brand-types__grid">
+    <% laminateCategories.forEach(([title, description], index) => { %>
+      <article class="brand-type-card fade-up" data-delay="<%= index * 100 %>">
+        <img src="/assets/images/category/designer-laminates_1.jpg" alt="Greenlam <%= title %>" />
+        <div class="brand-type-card__content">
+          <h3><%= title %></h3>
+          <p><%= description %></p>
+          <a class="featured-interiors__button" href="/products">Explore Products <span aria-hidden="true">+</span></a>
+        </div>
+      </article>
+    <% }) %>
+  </div></div></section>
+</main>
