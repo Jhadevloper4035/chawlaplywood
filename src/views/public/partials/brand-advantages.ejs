@@ -1,0 +1,18 @@
+<section class="brand-advantages<%= sectionClass ? ` ${sectionClass}` : "" %>" aria-labelledby="<%= titleId %>">
+  <div class="container-lg">
+    <div class="brand-types__intro">
+      <h2 id="<%= titleId %>"><%= title %></h2>
+      <span class="brand-about__divider" aria-hidden="true"></span>
+    </div>
+
+    <div class="brand-advantages__grid">
+      <% items.forEach((item) => { %>
+        <article class="brand-advantages__item brand-advantages__item--reveal">
+          <span class="brand-advantages__icon" aria-hidden="true"><i class="ph <%= item.icon %>"></i></span>
+          <h3><%= item.title %></h3>
+          <p><%= item.description %></p>
+        </article>
+      <% }) %>
+    </div>
+  </div>
+</section>

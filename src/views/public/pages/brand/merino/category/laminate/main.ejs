@@ -91,47 +91,19 @@
     </div>
   </section>
 
-  <section class="brand-advantages" aria-labelledby="merinoAdvantagesTitle">
-    <div class="container-lg">
-      <div class="brand-types__intro">
-        <h2 id="merinoAdvantagesTitle">Advantages of Laminates</h2>
-        <span class="brand-about__divider" aria-hidden="true"></span>
-      </div>
-
-      <div class="brand-advantages__grid">
-        <article class="brand-advantages__item fade-up" data-delay="0">
-          <span class="brand-advantages__icon" aria-hidden="true"><i class="ph ph-sliders-horizontal"></i></span>
-          <h3>Customizable</h3>
-          <p>Merino HPL laminates can be customized easily as per the requirement. It is easy to resize and reshape them.</p>
-        </article>
-        <article class="brand-advantages__item fade-up" data-delay="180">
-          <span class="brand-advantages__icon" aria-hidden="true"><i class="ph ph-squares-four"></i></span>
-          <h3>Versatile Application</h3>
-          <p>Laminates can be utilized in numerous applications to fulfil different requirements.</p>
-        </article>
-        <article class="brand-advantages__item fade-up" data-delay="360">
-          <span class="brand-advantages__icon" aria-hidden="true"><i class="ph ph-shield-check"></i></span>
-          <h3>Hygienic</h3>
-          <p>Decorative laminates are antibacterial and antifungal in nature, helping maintain a hygienic atmosphere.</p>
-        </article>
-        <article class="brand-advantages__item fade-up" data-delay="540">
-          <span class="brand-advantages__icon" aria-hidden="true"><i class="ph ph-shield"></i></span>
-          <h3>Durable</h3>
-          <p>Merino laminates are resistant to heat, moisture, water, steam, termite, and corrosion.</p>
-        </article>
-        <article class="brand-advantages__item fade-up" data-delay="720">
-          <span class="brand-advantages__icon" aria-hidden="true"><i class="ph ph-sparkle"></i></span>
-          <h3>Easy to Maintain</h3>
-          <p>Along with simple installation, Merino laminates are easy to clean and maintain.</p>
-        </article>
-        <article class="brand-advantages__item fade-up" data-delay="900">
-          <span class="brand-advantages__icon" aria-hidden="true"><i class="ph ph-palette"></i></span>
-          <h3>Highly Decorative</h3>
-          <p>A wide choice of designs and finishes helps create a surface that suits your interior style.</p>
-        </article>
-      </div>
-    </div>
-  </section>
+  <%- include("../../../../../partials/brand-advantages", {
+    titleId: "merinoAdvantagesTitle",
+    title: "Advantages of Laminates",
+    sectionClass: "",
+    items: [
+      { icon: "ph-sliders-horizontal", title: "Customizable", description: "Merino HPL laminates can be customized easily as per the requirement. It is easy to resize and reshape them." },
+      { icon: "ph-squares-four", title: "Versatile Application", description: "Laminates can be utilized in numerous applications to fulfil different requirements." },
+      { icon: "ph-shield-check", title: "Hygienic", description: "Decorative laminates are antibacterial and antifungal in nature, helping maintain a hygienic atmosphere." },
+      { icon: "ph-shield", title: "Durable", description: "Merino laminates are resistant to heat, moisture, water, steam, termite, and corrosion." },
+      { icon: "ph-sparkle", title: "Easy to Maintain", description: "Along with simple installation, Merino laminates are easy to clean and maintain." },
+      { icon: "ph-palette", title: "Highly Decorative", description: "A wide choice of designs and finishes helps create a surface that suits your interior style." },
+    ],
+  }) %>
 
   <section class="brand-faq" aria-labelledby="merinoFaqTitle">
     <div class="container-lg">

@@ -184,13 +184,49 @@ const productCategoryGroups = [
 }));
 
 const brands = [
+  { label: "Greenply", href: "/products" },
   { label: "Merino", href: "/brand/merino" },
-  { label: "Crossbond", href: "/products" },
   { label: "Action Tesa", href: "/brand/action-tesa" },
   { label: "Greenlam", href: "/brand/greenlam" },
   { label: "CenturyPly", href: "/brand/centuryply" },
 ];
 
+const brandCategories = [
+  {
+    label: "Greenply",
+    href: "/products",
+    categories: [{ label: "Plywood & Blockboard", href: "/products" }],
+  },
+  {
+    label: "Merino",
+    href: "/brand/merino",
+    categories: [
+      { label: "Laminates", href: "/brand/merino/laminate" },
+      { label: "Panels", href: "/brand/merino/panel" },
+      { label: "Solid Surfaces", href: "/brand/merino/solid-surface" },
+      { label: "Fabwood HFSS", href: "/brand/merino/fabwood" },
+    ],
+  },
+  {
+    label: "Action Tesa",
+    href: "/brand/action-tesa",
+    categories: [{ label: "Boards", href: "/brand/action-tesa" }],
+  },
+  {
+    label: "Greenlam",
+    href: "/brand/greenlam",
+    categories: [{ label: "Laminates", href: "/brand/greenlam/laminates" }],
+  },
+  {
+    label: "CenturyPly",
+    href: "/brand/centuryply",
+    categories: [
+      { label: "Laminates", href: "/brand/centuryply/laminates" },
+      { label: "Veneers", href: "/brand/centuryply/veneers" },
+      { label: "Doors", href: "/brand/centuryply/doors" },
+    ],
+  },
+];
 
 const quickLinks = [
   { label: "About Us", href: "/default/about-us" },
@@ -213,6 +249,7 @@ const footerData = {
   productSubCategories,
   productCategoryGroups,
   brands,
+  brandCategories,
   quickLinks,
   applications,
 };

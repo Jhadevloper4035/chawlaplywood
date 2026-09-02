@@ -1,12 +1,29 @@
 <% const footer = typeof footerData !== "undefined" ? footerData : {}; %>
 <% const productCategories = footer.productCategories || []; %>
 <% const brands = footer.brands || []; %>
+<% const brandCategories = footer.brandCategories || []; %>
 <% const quickLinks = footer.quickLinks || []; %>
 <% const applications = footer.applications || []; %>
 
 <!-- ==== footer start ==== -->
 <footer class="site-footer">
   <div class="container-lg">
+    <nav class="site-footer__brands" aria-label="Brand categories">
+      <h2 class="site-footer__title">Our Brands</h2>
+      <div class="site-footer__brand-categories">
+        <% brandCategories.forEach((brand) => { %>
+          <section class="site-footer__brand-category">
+            <h3><a href="<%= brand.href %>"><%= brand.label %></a></h3>
+            <ul>
+              <% brand.categories.forEach((category) => { %>
+                <li><a href="<%= category.href %>"><%= category.label %></a></li>
+              <% }) %>
+            </ul>
+          </section>
+        <% }) %>
+      </div>
+    </nav>
+
     <div class="site-footer__grid">
       <nav class="site-footer__nav" aria-label="Product categories">
         <h3 class="site-footer__subtitle">Categories</h3>

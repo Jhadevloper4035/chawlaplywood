@@ -789,6 +789,34 @@
             });
         }
 
+        if ($(".merino-applications__slider").length > 0) {
+            new Swiper(".merino-applications__slider", {
+                loop: true,
+                speed: 700,
+                slidesPerView: 1,
+                spaceBetween: 20,
+                grabCursor: true,
+                navigation: {
+                    nextEl: ".merino-applications__next",
+                    prevEl: ".merino-applications__prev",
+                },
+                pagination: {
+                    el: ".merino-applications__pagination",
+                    clickable: true,
+                },
+                breakpoints: {
+                    768: {
+                        slidesPerView: 2,
+                        spaceBetween: 24,
+                    },
+                    1200: {
+                        slidesPerView: 3,
+                        spaceBetween: 28,
+                    },
+                },
+            });
+        }
+
         /**
          * ======================================
          * 12. project four slider
@@ -1412,8 +1440,35 @@
                 },
             };
 
-            let hasAnyTargets = false;
+            $(".brand-advantages__grid").each(function() {
+                const cards = this.querySelectorAll(".brand-advantages__item--reveal");
 
+                if (
+                    !cards.length ||
+                    window.matchMedia("(prefers-reduced-motion: reduce)").matches
+                ) {
+                    return;
+                }
+
+                gsap.fromTo(cards, {
+                    opacity: 0,
+                    y: 22,
+                }, {
+                    scrollTrigger: {
+                        trigger: this,
+                        start: "top 88%",
+                        once: true,
+                    },
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.78,
+                    ease: "power3.out",
+                    stagger: 0.18,
+                    clearProps: "transform",
+                });
+            });
+
+            let hasAnyTargets = false;
             $.each(animations, function(className) {
                 if ($(`.${className}`).length > 0) {
                     hasAnyTargets = true;
