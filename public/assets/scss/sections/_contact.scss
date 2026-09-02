@@ -635,6 +635,86 @@
     }
 }
 
+// call and WhatsApp call to action
+.contact-cta {
+    background: linear-gradient(90deg, rgba(9, 4, 2, 0.84), rgba(9, 4, 2, 0.58)), url("../images/cta-banner.webp") center / cover no-repeat;
+    font-family: var(--template-font);
+    padding-block: clamp(72px, 9vw, 140px);
+}
+
+.contact-cta__content {
+    margin-inline: auto;
+    max-width: 900px;
+    text-align: center;
+}
+
+.contact-cta h2 {
+    color: var(--white);
+    font-family: var(--heading-font);
+    font-size: clamp(26px, 2.5vw, 38px);
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    line-height: 1.35;
+    text-transform: uppercase;
+}
+
+.contact-cta__divider {
+    background-color: rgba(255, 255, 255, 0.8);
+    display: block;
+    height: 46px;
+    margin: 28px auto;
+    width: 2px;
+}
+
+.contact-cta p {
+    color: rgba(255, 255, 255, 0.88);
+    font-size: clamp(17px, 1.5vw, 22px);
+    line-height: 1.5;
+}
+
+.contact-cta__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px 24px;
+    margin-top: 34px;
+}
+
+.contact-cta__button {
+    align-items: center;
+    background-color: #365a7e;
+    border-radius: 999px;
+    color: var(--white);
+    display: inline-flex;
+    font-size: 18px;
+    font-weight: 600;
+    gap: 12px;
+    justify-content: center;
+    min-width: min(100%, 330px);
+    padding: 18px 34px;
+}
+
+.contact-cta__button:hover,
+.contact-cta__button:focus-visible {
+    background-color: var(--template-color);
+    color: var(--white);
+}
+
+.contact-cta__button .fa-whatsapp {
+    color: #25d366;
+    font-size: 26px;
+}
+
+@include max-screen(575px) {
+    .contact-cta {
+        padding-block: 64px;
+    }
+
+    .contact-cta__button {
+        width: 100%;
+    }
+}
+
 @include lg-screen {
     .board-help-cta {
         padding-block: clamp(88px, 8vw, 120px);

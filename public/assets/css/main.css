@@ -3024,6 +3024,52 @@ span {
  --------- (3.05) scroll porgress button styles end ---------
  ==== */
 
+/* ==== floating contact styles start ==== */
+.floating-contact {
+    bottom: 90px;
+    display: grid;
+    gap: 10px;
+    position: fixed;
+    right: 20px;
+    z-index: 100;
+}
+
+.floating-contact a {
+    align-items: center;
+    border-radius: 50%;
+    box-shadow: 0 8px 20px rgba(9, 4, 2, 0.22);
+    color: var(--white);
+    display: inline-flex;
+    font-size: 24px;
+    height: 52px;
+    justify-content: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    width: 52px;
+}
+
+.floating-contact a:hover,
+.floating-contact a:focus-visible {
+    color: var(--white);
+    box-shadow: 0 12px 24px rgba(9, 4, 2, 0.3);
+    transform: translateY(-2px);
+}
+
+.floating-contact__call {
+    background-color: #365a7e;
+}
+
+.floating-contact__whatsapp {
+    background-color: #25d366;
+}
+
+@media only screen and (min-width: 992px) {
+    .floating-contact {
+        bottom: 150px;
+    }
+}
+
+/* ==== floating contact styles end ==== */
+
 /* ==============
  ========= css table of contents =========
 
@@ -6016,6 +6062,7 @@ span {
 }
 
 .brand-types h2,
+.brand-applications h2,
 .brand-advantages h2,
 .brand-faq h2,
 .brand-type-card h3,
@@ -6027,6 +6074,7 @@ span {
 }
 
 .brand-types h2,
+.brand-applications h2,
 .brand-advantages h2,
 .brand-faq h2 {
     font-size: clamp(26px, 2.5vw, 38px);
@@ -15431,6 +15479,88 @@ span {
     box-shadow: 0 12px 24px rgba(255, 122, 26, 0.28);
     transform: translateY(-2px);
 }
+
+/* ==== call and WhatsApp CTA styles start ==== */
+.contact-cta {
+    background: linear-gradient(90deg, rgba(9, 4, 2, 0.84), rgba(9, 4, 2, 0.58)), url("../images/cta-banner.webp") center / cover no-repeat;
+    font-family: var(--template-font);
+    padding-block: clamp(72px, 9vw, 140px);
+}
+
+.contact-cta__content {
+    margin-inline: auto;
+    max-width: 900px;
+    text-align: center;
+}
+
+.contact-cta h2 {
+    color: var(--white);
+    font-family: var(--heading-font);
+    font-size: clamp(26px, 2.5vw, 38px);
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    line-height: 1.35;
+    text-transform: uppercase;
+}
+
+.contact-cta__divider {
+    background-color: rgba(255, 255, 255, 0.8);
+    display: block;
+    height: 46px;
+    margin: 28px auto;
+    width: 2px;
+}
+
+.contact-cta p {
+    color: rgba(255, 255, 255, 0.88);
+    font-size: clamp(17px, 1.5vw, 22px);
+    line-height: 1.5;
+}
+
+.contact-cta__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px 24px;
+    margin-top: 34px;
+}
+
+.contact-cta__button {
+    align-items: center;
+    background-color: #365a7e;
+    border-radius: 999px;
+    color: var(--white);
+    display: inline-flex;
+    font-size: 18px;
+    font-weight: 600;
+    gap: 12px;
+    justify-content: center;
+    min-width: min(100%, 330px);
+    padding: 18px 34px;
+}
+
+.contact-cta__button:hover,
+.contact-cta__button:focus-visible {
+    background-color: var(--template-color);
+    color: var(--white);
+}
+
+.contact-cta__button .fa-whatsapp {
+    color: #25d366;
+    font-size: 26px;
+}
+
+@media only screen and (max-width: 575px) {
+    .contact-cta {
+        padding-block: 64px;
+    }
+
+    .contact-cta__button {
+        width: 100%;
+    }
+}
+
+/* ==== call and WhatsApp CTA styles end ==== */
 
 @media only screen and (min-width: 992px) {
 .board-help-cta {
